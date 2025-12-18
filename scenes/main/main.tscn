@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://ekvt1amehlo"]
+
+[ext_resource type="PackedScene" uid="uid://bfuerswgbmsbf" path="res://scenes/dinos/triceratops/triceratops.tscn" id="1_hyk8p"]
+[ext_resource type="PackedScene" uid="uid://c5go38ycvpoa" path="res://scenes/terrain/palm_tree/palm_tree.tscn" id="2_iuonh"]
+[ext_resource type="PackedScene" uid="uid://ja3x780gqqi1" path="res://scenes/terrain/rocks/rocks.tscn" id="2_k2fmo"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Entities" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Terrain" type="Node2D" parent="Entities"]
+y_sort_enabled = true
+
+[node name="Trees" type="Node2D" parent="Entities/Terrain"]
+y_sort_enabled = true
+
+[node name="PalmTree" parent="Entities/Terrain/Trees" instance=ExtResource("2_iuonh")]
+position = Vector2(-333, -20)
+
+[node name="PalmTree4" parent="Entities/Terrain/Trees" instance=ExtResource("2_iuonh")]
+position = Vector2(604, 192)
+
+[node name="PalmTree2" parent="Entities/Terrain/Trees" instance=ExtResource("2_iuonh")]
+position = Vector2(-234, -44)
+
+[node name="PalmTree3" parent="Entities/Terrain/Trees" instance=ExtResource("2_iuonh")]
+position = Vector2(-363, -77)
+
+[node name="PalmTree5" parent="Entities/Terrain/Trees" instance=ExtResource("2_iuonh")]
+position = Vector2(-335, 287)
+
+[node name="Rocks" type="Node2D" parent="Entities/Terrain"]
+y_sort_enabled = true
+
+[node name="Rocks" parent="Entities/Terrain/Rocks" instance=ExtResource("2_k2fmo")]
+position = Vector2(296, -115)
+
+[node name="Rocks2" parent="Entities/Terrain/Rocks" instance=ExtResource("2_k2fmo")]
+position = Vector2(-229, 275)
+
+[node name="Rocks3" parent="Entities/Terrain/Rocks" instance=ExtResource("2_k2fmo")]
+position = Vector2(496, 211)
+
+[node name="Triceratops" parent="Entities" instance=ExtResource("1_hyk8p")]

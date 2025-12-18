@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5go38ycvpoa"]
+
+[ext_resource type="Texture2D" uid="uid://d3jxhtup8da0f" path="res://assets/images/terrain/palmtree1.png" id="1_s5g7m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqgg7"]
+
+[node name="PalmTree" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aqgg7")
+
+[node name="Palmtree1" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_s5g7m")
+offset = Vector2(80.000015, -414.99994)

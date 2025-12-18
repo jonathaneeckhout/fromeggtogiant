@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfuerswgbmsbf"]
+
+[ext_resource type="Script" uid="uid://c1gwos5ls7pt3" path="res://scenes/dinos/triceratops/triceratops.gd" id="1_8xw00"]
+[ext_resource type="PackedScene" uid="uid://c5sdusc6nbnca" path="res://scenes/dinos/triceratops/triceratops_model.tscn" id="1_wvcsq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvcsq"]
+radius = 32.0
+height = 148.0
+
+[node name="Triceratops" type="CharacterBody2D"]
+script = ExtResource("1_8xw00")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -32)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_wvcsq")
+
+[node name="TriceratopsModel" parent="." instance=ExtResource("1_wvcsq")]
+unique_name_in_owner = true
+scale = Vector2(0.1, 0.1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
