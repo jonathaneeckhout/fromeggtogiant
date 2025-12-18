@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ekvt1amehlo"]
+[gd_scene load_steps=5 format=3 uid="uid://ekvt1amehlo"]
 
 [ext_resource type="PackedScene" uid="uid://bfuerswgbmsbf" path="res://scenes/dinos/triceratops/triceratops.tscn" id="1_hyk8p"]
 [ext_resource type="PackedScene" uid="uid://c5go38ycvpoa" path="res://scenes/terrain/palm_tree/palm_tree.tscn" id="2_iuonh"]
 [ext_resource type="PackedScene" uid="uid://ja3x780gqqi1" path="res://scenes/terrain/rocks/rocks.tscn" id="2_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://bflkuudtjr7c4" path="res://scenes/dinos/trex/trex.tscn" id="4_l3cfh"]
 
 [node name="Main" type="Node2D"]
 
@@ -42,4 +43,10 @@ position = Vector2(-229, 275)
 [node name="Rocks3" parent="Entities/Terrain/Rocks" instance=ExtResource("2_k2fmo")]
 position = Vector2(496, 211)
 
-[node name="Triceratops" parent="Entities" instance=ExtResource("1_hyk8p")]
+[node name="Dinos" type="Node2D" parent="Entities"]
+y_sort_enabled = true
+
+[node name="Triceratops" parent="Entities/Dinos" instance=ExtResource("1_hyk8p")]
+
+[node name="Trex" parent="Entities/Dinos" instance=ExtResource("4_l3cfh")]
+position = Vector2(693, -18)

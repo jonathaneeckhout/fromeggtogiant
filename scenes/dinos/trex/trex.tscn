@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bflkuudtjr7c4"]
+
+[ext_resource type="PackedScene" uid="uid://c2d8u4qu8iipu" path="res://scenes/dinos/trex/trex_model.tscn" id="1_ufgks"]
+[ext_resource type="Script" uid="uid://bmd1jcwpvcw04" path="res://scenes/dinos/trex/trex.gd" id="1_v16ri"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ufgks"]
+
+[node name="Trex" type="CharacterBody2D"]
+script = ExtResource("1_v16ri")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ufgks")
+
+[node name="TrexModel" parent="." instance=ExtResource("1_ufgks")]
+scale = Vector2(0.15, 0.15)
