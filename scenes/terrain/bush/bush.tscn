@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c16vpmfoxpfbg"]
+
+[ext_resource type="Texture2D" uid="uid://bdftrfvan1r1l" path="res://assets/images/terrain/bush1.png" id="1_q1ne6"]
+
+[node name="Bush" type="Node2D"]
+
+[node name="Bush1" type="Sprite2D" parent="."]
+position = Vector2(-1, -3)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_q1ne6")
+offset = Vector2(121, -211)

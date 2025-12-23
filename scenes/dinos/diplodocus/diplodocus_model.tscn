@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://cev1d7xg0cmee"]
+
+[ext_resource type="Texture2D" uid="uid://0l37olr420io" path="res://assets/images/dinos/diplodocus/body.png" id="1_7o3cw"]
+[ext_resource type="Texture2D" uid="uid://b1acr2tbifdp4" path="res://assets/images/dinos/diplodocus/frontbackleg.png" id="2_qxukm"]
+[ext_resource type="Texture2D" uid="uid://bhr1npfi5014c" path="res://assets/images/dinos/diplodocus/frontfrontleg.png" id="3_tpa8k"]
+[ext_resource type="Texture2D" uid="uid://qb0lcue5tcl" path="res://assets/images/dinos/diplodocus/head.png" id="4_5jhn0"]
+[ext_resource type="Texture2D" uid="uid://k3t2q1g5rktv" path="res://assets/images/dinos/diplodocus/rearbackleg.png" id="5_81ac2"]
+[ext_resource type="Texture2D" uid="uid://nn3w8tuofec5" path="res://assets/images/dinos/diplodocus/rearfrontleg.png" id="6_fmg02"]
+
+[node name="DiplodocusModel" type="Node2D"]
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Rearbackleg" type="Sprite2D" parent="Sprites"]
+position = Vector2(122, -544)
+texture = ExtResource("5_81ac2")
+
+[node name="Rearfrontleg" type="Sprite2D" parent="Sprites"]
+position = Vector2(122, -544)
+texture = ExtResource("6_fmg02")
+
+[node name="Body" type="Sprite2D" parent="Sprites"]
+position = Vector2(122, -544)
+texture = ExtResource("1_7o3cw")
+
+[node name="Frontbackleg" type="Sprite2D" parent="Sprites/Body"]
+texture = ExtResource("2_qxukm")
+
+[node name="Frontfrontleg" type="Sprite2D" parent="Sprites/Body"]
+texture = ExtResource("3_tpa8k")
+
+[node name="Head" type="Sprite2D" parent="Sprites/Body"]
+texture = ExtResource("4_5jhn0")

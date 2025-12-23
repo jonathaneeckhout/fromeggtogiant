@@ -1,11 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://ekvt1amehlo"]
+[gd_scene load_steps=16 format=4 uid="uid://ekvt1amehlo"]
 
 [ext_resource type="PackedScene" uid="uid://bfuerswgbmsbf" path="res://scenes/dinos/triceratops/triceratops.tscn" id="1_hyk8p"]
+[ext_resource type="Texture2D" uid="uid://bfcb1yxn065y8" path="res://assets/images/terrain/dirt.png" id="1_yyfjg"]
+[ext_resource type="Texture2D" uid="uid://bkrgnjinns2j4" path="res://assets/images/terrain/grass.png" id="2_b1x3f"]
 [ext_resource type="PackedScene" uid="uid://c5go38ycvpoa" path="res://scenes/terrain/palm_tree/palm_tree.tscn" id="2_iuonh"]
 [ext_resource type="PackedScene" uid="uid://ja3x780gqqi1" path="res://scenes/terrain/rocks/rocks.tscn" id="2_k2fmo"]
 [ext_resource type="PackedScene" uid="uid://bflkuudtjr7c4" path="res://scenes/dinos/trex/trex.tscn" id="4_l3cfh"]
+[ext_resource type="PackedScene" uid="uid://c16vpmfoxpfbg" path="res://scenes/terrain/bush/bush.tscn" id="4_ow5a4"]
+[ext_resource type="Shader" uid="uid://iakc6geipath" path="res://scenes/main/main.gdshader" id="7_hujxm"]
+[ext_resource type="PackedScene" uid="uid://dd1fow2socovt" path="res://scenes/dinos/diplodocus/diplodocus.tscn" id="8_b1x3f"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8run"]
+texture = ExtResource("1_yyfjg")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ouso4"]
+texture = ExtResource("2_b1x3f")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_blune"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_a8run")
+sources/1 = SubResource("TileSetAtlasSource_ouso4")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_hujxm"]
+frequency = 0.0075
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hujxm"]
+width = 256
+height = 256
+noise = SubResource("FastNoiseLite_hujxm")
+seamless = true
+seamless_blend_skirt = 0.75
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yyfjg"]
+shader = ExtResource("7_hujxm")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_hujxm")
+shader_parameter/density = 0.25
+shader_parameter/speed = Vector2(0.02, 0.01)
 
 [node name="Main" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, -1)
+tile_map_data = PackedByteArray("AAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAADAP7/AAAAAAAAAAADAP//AAAAAAAAAAACAP//AAAAAAAAAAABAP//AAAAAAAAAAAAAP//AAAAAAAAAAD/////AAAAAAAAAAD+////AAAAAAAAAAD9////AAAAAAAAAAD8////AAAAAAAAAAD8/wAAAAAAAAAAAAD9/wAAAAAAAAAAAAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAD8/wEAAAAAAAAAAAD9/wEAAAAAAAAAAAD+/wEAAAAAAAAAAAD//wEAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAEAAAAAAAAAAAACAAEAAAAAAAAAAAADAAEAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_blune")
 
 [node name="Entities" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -43,10 +84,135 @@ position = Vector2(-229, 275)
 [node name="Rocks3" parent="Entities/Terrain/Rocks" instance=ExtResource("2_k2fmo")]
 position = Vector2(496, 211)
 
+[node name="Bushes" type="Node2D" parent="Entities/Terrain"]
+y_sort_enabled = true
+
+[node name="Bush" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(264, 319)
+
+[node name="Bush2" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(229, 352)
+
+[node name="Bush3" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(287, 367)
+
+[node name="Bush4" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(333, 338)
+
+[node name="Bush5" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(346, 380)
+
+[node name="Bush6" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(323, 305)
+
+[node name="Bush7" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(237, 402)
+
+[node name="Bush8" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(308, 417)
+
+[node name="Bush9" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(394, 423)
+
+[node name="Bush10" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(405, 382)
+
+[node name="Bush11" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(411, 347)
+
+[node name="Bush12" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(468, 372)
+
+[node name="Bush13" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(458, 428)
+
+[node name="Bush14" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(464, 334)
+
+[node name="Bush15" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(396, 307)
+
+[node name="Bush16" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(184, -97)
+
+[node name="Bush17" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(217, -62)
+
+[node name="Bush18" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(260, -94)
+
+[node name="Bush19" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(291, -65)
+
+[node name="Bush20" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(348, -84)
+
+[node name="Bush21" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(363, -49)
+
+[node name="Bush22" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(418, -75)
+
+[node name="Bush23" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(305, -20)
+
+[node name="Bush24" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(230, -35)
+
+[node name="Bush25" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(-278, -15)
+
+[node name="Bush26" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(-298, -61)
+
+[node name="Bush27" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(-374, -32)
+
+[node name="Bush28" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(-194, -44)
+
+[node name="Bush29" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(-131, 159)
+
+[node name="Bush30" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(-66, 154)
+
+[node name="Bush31" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(-52, 183)
+
+[node name="Bush32" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(-99, 199)
+
+[node name="Bush33" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(-57, 228)
+
+[node name="Bush34" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(-48, 270)
+
+[node name="Bush35" parent="Entities/Terrain/Bushes" instance=ExtResource("4_ow5a4")]
+position = Vector2(2, 224)
+
 [node name="Dinos" type="Node2D" parent="Entities"]
 y_sort_enabled = true
 
 [node name="Triceratops" parent="Entities/Dinos" instance=ExtResource("1_hyk8p")]
 
 [node name="Trex" parent="Entities/Dinos" instance=ExtResource("4_l3cfh")]
-position = Vector2(693, -18)
+position = Vector2(290, 345)
+
+[node name="Diplodocus" parent="Entities" instance=ExtResource("8_b1x3f")]
+position = Vector2(518, -11)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 2
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 1080)
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
+material = SubResource("ShaderMaterial_yyfjg")
+offset_left = 1.0
+offset_right = 1921.0
+offset_bottom = 1080.0
+metadata/_edit_lock_ = true
