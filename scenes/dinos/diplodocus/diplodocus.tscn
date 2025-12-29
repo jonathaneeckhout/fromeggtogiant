@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd1fow2socovt"]
+[gd_scene load_steps=4 format=3 uid="uid://dd1fow2socovt"]
 
 [ext_resource type="PackedScene" uid="uid://cev1d7xg0cmee" path="res://scenes/dinos/diplodocus/diplodocus_model.tscn" id="1_4t50n"]
+[ext_resource type="Script" uid="uid://dpskg0vs03o0i" path="res://scenes/dinos/diplodocus/diplodocus.gd" id="1_efx7f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ab75s"]
 
 [node name="Diplodocus" type="CharacterBody2D"]
+script = ExtResource("1_efx7f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5707964
