@@ -201,7 +201,7 @@ y_sort_enabled = true
 position = Vector2(290, 345)
 
 [node name="Diplodocus" parent="Entities" instance=ExtResource("8_b1x3f")]
-position = Vector2(518, -11)
+position = Vector2(519, -11)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = 2
